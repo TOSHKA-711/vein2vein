@@ -1,0 +1,179 @@
+.blood {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.blood .nav {
+  width: 100%;
+  background-color: #524f4f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.blood .nav .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dce0e4;
+  font-size: 25px;
+  font-weight: 400;
+}
+.blood .nav .taps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dce0e4;
+  font-size: 22px;
+  font-weight: 400;
+  gap: 25px;
+}
+
+.blood .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 85%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  -webkit-transform: translate(-50%, 30%);
+  -moz-transform: translate(-50%, 30%);
+  -ms-transform: translate(-50%, 30%);
+  -o-transform: translate(-50%, 30%);
+}
+
+.blood .container .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: 2rem;
+}
+.blood .container .header .title {
+  color: #df2d2d;
+  font-size: 25px;
+  font-family: 400;
+  border: 2px solid black;
+  padding: 15px 30px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  position: relative;
+  background-color: #f1f5f9;
+}
+.blood .container .header .title::before {
+  content: "";
+  height: 3px;
+  width: 30rem;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  -webkit-transform: translate(-100%, -50%);
+  -moz-transform: translate(-100%, -50%);
+  -ms-transform: translate(-100%, -50%);
+  -o-transform: translate(-100%, -50%);
+}
+.blood .container .header .title::after {
+  content: "";
+  height: 3px;
+  width: 30rem;
+  background-color: black;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(100%, -50%);
+  -webkit-transform: translate(100%, -50%);
+  -moz-transform: translate(100%, -50%);
+  -ms-transform: translate(100%, -50%);
+  -o-transform: translate(100%, -50%);
+}
+
+.blood .container .inputs {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 30rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+.blood .container .inputs button {
+  background-color: #df2d2d;
+  font-size: 18px;
+  padding: 15px 40px;
+  color: #fff;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  bottom: -225px;
+  transform: translate(-100%, -101%);
+}
+.blood .container .type {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.blood .container .type h1 {
+  font-size: 18px;
+}
+.blood .container .type .container2 {
+  width: 95%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 4rem;
+}
+.blood .container .type .container2 .item {
+  width: 19%;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 5rem;
+  gap: 7rem;
+  /* margin-top: 30rem; */
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 340%);
+  z-index: 1;
+}
+
+/* -------------------------- */
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  width: 25%;
+}
+#standard-basic {
+  font-size: 20px;
+}

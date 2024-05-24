@@ -1,0 +1,62 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 19px;
+}
+
+.item .options {
+  position: relative;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item .options:hover .list {
+  /* display: none; */
+}
+.item .options .list-icon {
+  background-color: #eee;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.item .options .list {
+  width: 24rem;
+  background-color: #eee;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transform: translate(-60%, 70%);
+  -webkit-transform: translate(-35%, 70%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 9px 10px;
+  border-radius: 20px;
+  display: none;
+  z-index: 10;
+
+}
+.item .options .list .choice {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+}
+.item .options .list .choice input[type="number"] {
+  width: 38px;
+  border-radius: 10px;
+  padding: 2px 4px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
