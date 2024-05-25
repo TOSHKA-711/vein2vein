@@ -1,0 +1,312 @@
+body{
+    /* background-color: #524f4f; */
+    overflow-x: hidden;
+  }
+  
+  
+  .donors {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #524f4f;
+  }
+  
+  .donors .nav {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .donors .nav .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #db0f0f;
+    font-size: 25px;
+    font-weight: 400;
+  }
+  .donors .nav .taps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #524f4f;
+    font-size: 22px;
+    font-weight: 400;
+    gap: 25px;
+  }
+  
+  .donors .container {
+    width: 100vw;
+    height: 94%;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .donors .container .left {
+    width: 35%;
+    /* height: 100%; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    /* flex-direction: column; */
+    box-shadow: 0px 4px 4px 0px #00000080;
+    position: relative;
+    padding: 2rem 2rem;
+    min-height: 91vh;
+    
+  }
+  .donors .container .left .title {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    transform: translate(45%, -140%);
+    -webkit-transform: translate(45%, -140%);
+    -moz-transform: translate(45%, -140%);
+    -ms-transform: translate(45%, -140%);
+    -o-transform: translate(45%, -140%);
+    color: #fff;
+  }
+  /* ------------------- hover list ---------------------------- */
+  
+  .donors .container .left .title .list {
+    list-style: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    transform: translate(2px, -20px);
+    -webkit-transform: translate(2px, -20px);
+    -moz-transform: translate(2px, -20px);
+    -ms-transform: translate(2px, -20px);
+    -o-transform: translate(2px, -20px);
+    /*display: none;
+    */width: 193px;
+    padding: 0 33px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -ms-transition: 0.3s all;
+    -o-transition: 0.3s all;
+  }
+  
+  .donors .container .left .title .list::before {
+    content: "";
+    border: 11px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    position: absolute;
+    left: -10px;
+    top: 15px;
+  }
+  .donors .container .left .title .list li {
+    padding: 18px 3px;
+    display: block;
+    transform: translate(-30px, 0px);
+    -webkit-transform: translate(-30px, 0px);
+    -moz-transform: translate(-30px, 0px);
+    -ms-transform: translate(-30px, 0px);
+    -o-transform: translate(-30px, 0px);
+    z-index: 1;
+    cursor: pointer;
+  }
+  .donors .container .left .title .list li span {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+  }
+  .donors .container .left .title .list li {
+    border-bottom: 1px solid #ddd;
+  }
+  .donors .container .left .title .list li:hover span {
+    padding-left: 15px;
+  }
+  
+  /* ---------------------------------------- */
+  
+  .donors .container .left .title .option-mark {
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    border: 1px solid #fff;
+    padding: 2px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+  }
+  .donors .container .left .title .x-mark {
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    border: 1px solid #fff;
+    padding: 2px;
+    border-radius: 50%;
+    font-size: 23px;
+    cursor: pointer;
+    display: flex;
+  }
+  .option-mark,
+  .x-mark {
+    cursor: pointer;
+    display: none;
+  }
+  .option-mark.show,
+  .x-mark.show {
+    display: flex;
+  }
+  .donors .container .left .names {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    margin-top: 5rem;
+    gap: 1rem;
+  }
+  .donors .container .left .names .name {
+    width: 92%;
+    display: flex;
+  
+    align-items: center;
+    background-color: #646060;
+    padding: 15px 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+  
+    cursor: pointer;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -ms-transition: 0.3s all;
+    -o-transition: 0.3s all;
+  }
+  .donors .container .left .names .name .check-box {
+    display: none;
+  }
+  .donors .container .left .names .name:hover {
+    width: 96%;
+    background-color: #737070;
+  }
+  .donors .container .right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .donors .container .right .box {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #f6f6f6; */
+    padding: 3rem 1rem 1rem;
+    gap: 1rem;
+    border-radius: 20px;
+    position: relative;
+    border: 2px solid #fff;
+  }
+  .donors .container .right .box .title {
+    position: absolute;
+    top: -28px;
+    left: 38%;
+    transform: translateX(-90%);
+    background-color: #fff;
+    color: #524f4f;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 10px 90px 10px 14px;
+    border-radius: 20px;
+  }
+  .donors .container .right .box .title .icon {
+    font-size: 30px;
+  }
+  .message-icon {
+    position: absolute;
+    right: 15px;
+    top: 70px;
+    font-size: 30px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    color: #fff;
+    cursor: pointer;
+  }
+  .donors .container .right .box .title h1 {
+    font-size: 16px;
+  }
+  .donors .container .right .box .child {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+  }
+  .donors .container .right .box .last-child {
+    justify-content: flex-end;
+  }
+  .donors .container .right .box .child input {
+    background-color: #f6f6f6;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 5px;
+  }
+  .donors .container .right .box .child button {
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 8px 20px;
+    background-color: #db0f0f;
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* ---------- alter text ----------- */
+  
+  .donors .container .right .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .donors .container .right .text h1 {
+    color: #f6f6f6;
+  }
+  .donors .container .right .text p {
+    color: #f6f6f6;
+    font-size: 20px;
+  }
+  

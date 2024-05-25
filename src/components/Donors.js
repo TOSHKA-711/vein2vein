@@ -38,7 +38,7 @@ const Donors = () => {
   const handleSendMails = async (e) => {
     e.preventDefault();
     const url =
-      "https://api-service.cloud/vien2vien/public_html/api/auth/send-message";
+      "https://api-service.cloud/vien2vien/public_html/api/auth/send_donors_mails";
 
     // Check if user_names array is empty or null
     if (!user_names || user_names.length === 0) {
@@ -50,7 +50,7 @@ const Donors = () => {
     try {
       // Convert user_names array to a format expected by the API
       const formData = new FormData();
-      user_names.forEach((name) => formData.append("user_names[]", name));
+      user_names.forEach((name) => formData.append("donor_names[]", name));
 
       const response = await axios.post(url, formData);
       console.log("Data posted successfully:", response.data);
@@ -86,21 +86,24 @@ const Donors = () => {
   };
 
   // ----------------
-  const handleAddForm = (e) => {
+  const handleAddForm = async (e) => {
     e.preventDefault();
-    const url =
-      "https://api-service.cloud/vien2vien/public_html/api/auth/Newdonors";
-    axios
-      .post(url, dataForm)
-      .then((response) => {
-        console.log("Data posted successfully:", response.data);
-        alert("Donor added successfully!");
-      })
-      .catch((error) => {
-        console.error("Error posting data:", error);
-        alert("Error adding donor.");
-      });
+    const url = "https://api-service.cloud/vien2vien/public_html/api/auth/Newdonors";
+    
+    try {
+      const response = await axios.post(url, dataForm);
+      console.log("Data posted successfully:", response.data);
+      alert("Donor added successfully!");
+    } catch (error) {
+      console.error("Error posting data:", error);
+      alert("Error adding donor.");
+    }
   };
+
+  useEffect(() => {
+    
+  console.log(dataForm);
+  }, [dataForm]);
 
   const handleInputs = (e) => {
     const { id, value } = e.target;
@@ -238,7 +241,7 @@ const AddDonorForm = ({ dataForm, handleInputs, handleAddForm }) => (
       {
         label: "Last Donation Date",
         id: "last_donation_date",
-        placeholder: "d/m/y",
+        placeholder: "y-m-d",
       },
       { label: "Phone", id: "phone", placeholder: "0100000000" },
       { label: "Email", id: "email", placeholder: "Mohamed@gmail.com" },
@@ -261,3 +264,208 @@ const AddDonorForm = ({ dataForm, handleInputs, handleAddForm }) => (
 );
 
 export default Donors;
+// import React, { useState, useEffect, useCallback } from "react";
+// import axios from "axios";
+// import "./style/Donors.css";
+// import { SlOptions } from "react-icons/sl";
+// import { HiXMark } from "react-icons/hi2";
+// import Checkbox from "@mui/material/Checkbox";
+// import { FaUserCircle } from "react-icons/fa";
+// import { FaRegMessage } from "react-icons/fa6";
+// import AddDonorForm from "../elements/AddDonorForm"; // Assuming the form is in a separate file
+
+// const Donors = () => {
+//   const [names, setNames] = useState([]);
+//   const [optionsVisible, setOptionsVisible] = useState(true);
+//   const [listVisible, setListVisible] = useState(false);
+//   const [addDonorVisible, setAddDonorVisible] = useState(false);
+//   const [messageIconVisible, setMessageIconVisible] = useState(false);
+//   const [user_names, setUser_names] = useState([]);
+
+//   const [dataForm, setDataForm] = useState({
+//     name: "",
+//     idnumber: "",
+//     gender: "",
+//     bloodtype: "",
+//     last_donation_date: "",
+//     phone: "",
+//     email: "",
+//   });
+
+//   const handleCheckboxChange = (event, name) => {
+//     setUser_names((prev) =>
+//       event.target.checked ? [...prev, name] : prev.filter((user) => user !== name)
+//     );
+//   };
+
+//   const handleSendMails = async (e) => {
+//     e.preventDefault();
+//     const url = "https://api-service.cloud/vien2vien/public_html/api/auth/send_donors_mails";
+
+//     if (!user_names.length) {
+//       alert("Please select at least one user.");
+//       return;
+//     }
+
+//     try {
+//       const formData = new FormData();
+//       user_names.forEach((name) => formData.append("donor_names[]", name));
+
+//       const response = await axios.post(url, formData);
+//       alert("Mails sent successfully!");
+//     } catch (error) {
+//       const message = error.response?.data?.message || "Error sending mails. Please try again later.";
+//       alert(message);
+//     } finally {
+//       setUser_names([]);
+//       handleXmark();
+//     }
+//   };
+
+//   const validateFormData = () => {
+//     const { name, idnumber, gender, bloodtype, last_donation_date, phone, email } = dataForm;
+//     if (!name || !idnumber || !gender || !bloodtype || !last_donation_date || !phone || !email) {
+//       return false;
+//     }
+//     return true;
+//   };
+
+//   const handleAddForm = async (e) => {
+//     e.preventDefault();
+//     if (!validateFormData()) {
+//       alert("Please fill in all fields correctly.");
+//       return;
+//     }
+
+//     const url = "https://api-service.cloud/vien2vien/public_html/api/auth/Newdonors";
+
+//     try {
+//       console.log("Sending data:", dataForm); // Log the data being sent
+//       const response = await axios.post(url, dataForm);
+//       alert("Donor added successfully!");
+//     } catch (error) {
+//       console.error("Error posting data:", error);
+//       const message = error.response?.data?.message || "Error adding donor.";
+//       alert(message);
+//     }
+//   };
+
+//   useEffect(() => {
+//     const fetchNames = async () => {
+//       try {
+//         const response = await fetch("https://api-service.cloud/vien2vien/public_html/api/auth/showDonors");
+//         const data = await response.json();
+//         setNames(data);
+//       } catch (error) {
+//         console.error("Error fetching names:", error);
+//       }
+//     };
+
+//     fetchNames();
+//   }, []);
+
+//   const toggleOptions = useCallback(() => {
+//     setOptionsVisible((prev) => !prev);
+//     setListVisible((prev) => !prev);
+//   }, []);
+
+//   const handleSelectDonors = useCallback(() => {
+//     document.querySelectorAll(".check-box").forEach((element) => {
+//       element.style.display = "flex";
+//     });
+//   }, []);
+
+//   const handleXmark = useCallback(() => {
+//     document.querySelectorAll(".check-box").forEach((element) => {
+//       element.style.display = "none";
+//     });
+//     setOptionsVisible(true);
+//     setListVisible(false);
+//     setAddDonorVisible(false);
+//     setMessageIconVisible(false);
+//   }, []);
+
+//   const handleSelectOption = useCallback(() => {
+//     setListVisible(false);
+//     handleSelectDonors();
+//     setMessageIconVisible(true);
+//   }, [handleSelectDonors]);
+
+//   const handleAddDonorOption = useCallback(() => {
+//     setAddDonorVisible(true);
+//     setListVisible(false);
+//   }, []);
+
+//   const openOldDocument = useCallback(() => {
+//     window.open("/sectionSelect", "_self");
+//   }, []);
+
+//   const handleInputs = useCallback((e) => {
+//     const { id, value } = e.target;
+//     setDataForm((prevData) => ({ ...prevData, [id]: value }));
+//   }, []);
+
+//   return (
+//     <div className="donors">
+//       <div className="nav">
+//         <p className="logo">VEIN 2 VEIN</p>
+//         <div className="taps">
+//           <a className="options">Vein Donors</a>
+//           <a onClick={openOldDocument}>Exit</a>
+//         </div>
+//       </div>
+//       <div className="container">
+//         <div className="left">
+//           <div className="title">
+//             {listVisible && (
+//               <ul className="list">
+//                 <li onClick={handleSelectOption}>
+//                   <span>Select Donors</span>
+//                 </li>
+//                 <li onClick={handleAddDonorOption}>
+//                   <span>Add Donors</span>
+//                 </li>
+//               </ul>
+//             )}
+//             {optionsVisible ? (
+//               <SlOptions className="option-mark" onClick={toggleOptions} />
+//             ) : (
+//               <HiXMark className="x-mark" onClick={handleXmark} />
+//             )}
+//             <h1>Donors</h1>
+//           </div>
+//           {messageIconVisible && (
+//             <FaRegMessage className="message-icon" onClick={handleSendMails} />
+//           )}
+//           <div className="names">
+//             {names.map((name) => (
+//               <div className="name" key={name.id}>
+//                 <Checkbox
+//                   className="check-box"
+//                   onChange={(event) => handleCheckboxChange(event, name.name)}
+//                 />
+//                 <p>{name.name}</p>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//         <div className="right">
+//           {addDonorVisible ? (
+//             <AddDonorForm
+//               dataForm={dataForm}
+//               handleInputs={handleInputs}
+//               handleAddForm={handleAddForm}
+//             />
+//           ) : (
+//             <div className="text">
+//               <h1>VEIN 2 VEIN</h1>
+//               <p>vein 2 vein blood donation system</p>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Donors;

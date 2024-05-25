@@ -68,13 +68,13 @@ body{
 }
 .donors .container .left .title {
   position: absolute;
-  top: 10%;
+  top: 8%;
   left: 0;
-  transform: translate(45%, -50%);
-  -webkit-transform: translate(45%, -50%);
-  -moz-transform: translate(45%, -50%);
-  -ms-transform: translate(45%, -50%);
-  -o-transform: translate(45%, -50%);
+  transform: translate(45%, -140%);
+  -webkit-transform: translate(45%, -140%);
+  -moz-transform: translate(45%, -140%);
+  -ms-transform: translate(45%, -140%);
+  -o-transform: translate(45%, -140%);
   color: #fff;
 }
 /* ------------------- hover list ---------------------------- */

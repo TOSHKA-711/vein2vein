@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./style/Donors.css";
+import "./style/Community.css";
 import { SlOptions } from "react-icons/sl";
 import { HiXMark } from "react-icons/hi2";
 import Checkbox from "@mui/material/Checkbox";
@@ -111,7 +111,7 @@ const Community = () => {
     const fetchNames = async () => {
       try {
         const response = await fetch(
-          "https://api-service.cloud/vien2vien/public_html/api/auth/showDonors"
+          "https://api-service.cloud/vien2vien/public_html/api/auth/showusers"
         );
         const data = await response.json();
         setNames(data);
@@ -178,9 +178,9 @@ const Community = () => {
                 <li onClick={handleSelectOption}>
                   <span>Select Donors</span>
                 </li>
-                <li onClick={handleAddDonorOption}>
+                {/* <li onClick={handleAddDonorOption}>
                   <span>Add Donors</span>
-                </li>
+                </li> */}
               </ul>
             )}
             {optionsVisible ? (
